@@ -1,1 +1,2 @@
-// Demo react-native
+📖 Documentation
+Refer to: https://docs.expo.dev
