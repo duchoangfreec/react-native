@@ -7,7 +7,7 @@ import { Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
-export default function RootNavigation() {
+const RootNavigation = () => {
   return (
     <NavigationContainer fallback={<Text>Loading…</Text>}>
       <Stack.Navigator
@@ -33,4 +33,6 @@ export default function RootNavigation() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default RootNavigation;

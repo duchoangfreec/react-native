@@ -5,10 +5,10 @@ import {
   decrement,
   increment,
   selectCount,
-} from "../store/reducer/slice/counterSlice";
+} from "app/store/reducer/slice/counterSlice";
 
 import { useEffect } from "react";
-import AboutScreen from "~/app/screens/AboutScreen";
+import AboutScreen from "app/screens/AboutScreen";
 
 const HomeScreen = ({ navigation }) => {
   // log.info("This is some test information");
@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
       <Button title="increment" onPress={() => dispatch(increment())} />
       <Button title="decrement" onPress={() => dispatch(decrement())} />
       {/* </Provider> */}
-      {/* <AboutScreen /> */}
+      <AboutScreen />
     </>
   );
 };

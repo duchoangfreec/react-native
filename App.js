@@ -1,9 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import RootNavigation from "./app/navigation";
+
 const helmetContext = {};
 
 const App = () => {
@@ -21,20 +20,5 @@ const App = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: StatusBar.currentHeight,
-  },
-  scrollView: {
-    backgroundColor: "pink",
-    marginHorizontal: 20,
-    top: 50,
-  },
-  text: {
-    fontSize: 42,
-  },
-});
 
 export default App;
