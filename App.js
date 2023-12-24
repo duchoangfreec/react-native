@@ -1,47 +1,24 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
-import HomeScreen from "./app/screens/HomeScreen";
-import AboutScreen from "./app/screens/AboutScreen";
-import ProfileScreen from "./app/screens/ProfileScreen";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet } from "react-native";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
+import store from "./app/store";
+import RootNavigation from "./app/navigation";
+const helmetContext = {};
 
-const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerMode: "screen",
-          headerTintColor: "white",
-          headerStyle: {
-            backgroundColor: "tomato",
-          },
-          headerTitleAlign: "center",
-        }}
-        // options={{
-        //   headerStyle: {
-        //     backgroundColor: "#f4511e",
-        //   },
-        //   headerTintColor: "#fff",
-        //   headerTitleStyle: {
-        //     fontWeight: "bold",
-        //     alignSelf: "center",
-        //     alignItems: "center",
-        //     justifyContent: "center",
-        //   },
-        // }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Welcome" }}
-        />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <Provider store={store}>
+        <HelmetProvider context={helmetContext}>
+          <Helmet>
+            <script src="http://localhost:8097"></script>
+            <title>Travel App</title>
+          </Helmet>
+          <RootNavigation />
+        </HelmetProvider>
+      </Provider>
+    </>
   );
 };
 
